@@ -1,11 +1,14 @@
 import { Play } from "lucide-react";
 import { Separator } from "./ui/separator";
+import Sad from "@/assets/sad.png";
 
 const Result = ({ data }: any) => {
   if (!data) {
     return (
       <div className="text-center mt-32">
-        <p className="font-bold text-lg">:/</p>
+        <p className="font-bold text-lg">
+          <img src={Sad} alt="Sad face" className="w-[64px] h-[64px] mx-auto" />
+        </p>
         <p className="font-bold text-lg mt-11">No Definitions Found</p>
         <p className="mt-6 text-md">
           Sorry pal, we couldn't find definitions for the word you were looking
