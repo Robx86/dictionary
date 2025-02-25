@@ -1,8 +1,16 @@
 import { Play } from "lucide-react";
 import { Separator } from "./ui/separator";
 import Sad from "@/assets/sad.png";
+import { DefinitionType } from "@/lib/definition.types";
 
-const Result = ({ data, isLoading, error, searchedTerm }: any) => {
+type ResultProps = {
+  data: DefinitionType;
+  isLoading: boolean;
+  error: any;
+  searchedTerm: string;
+};
+
+const Result = ({ data, isLoading, error, searchedTerm }: ResultProps) => {
   if (!searchedTerm) {
     return <>Search anything</>;
   }
