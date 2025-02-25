@@ -31,7 +31,7 @@ function App() {
         data={data}
         isLoading={isLoading}
         error={error}
-        searchedTerm={debouncedSearchTerm}
+        searchedTerm={search}
       />
     </div>
   );
