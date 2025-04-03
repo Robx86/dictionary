@@ -10,12 +10,19 @@ function App() {
   const [search, setSearch] = useState<string>("");
   const debouncedSearchTerm = useDebounce(search, 300);
 
+
   const { data, isLoading, error } = useQuery({
     queryKey: ["definitions", debouncedSearchTerm],
-    queryFn: () =>
-      fetch(
+    queryFn: async () => {
+      const response = await fetch(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${debouncedSearchTerm}`
-      ).then((res) => res.json()),
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    },
+    retry: false,
     enabled: !!debouncedSearchTerm,
   });
 

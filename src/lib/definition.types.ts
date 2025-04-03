@@ -17,8 +17,7 @@ export type LicenseType = {
   url: string;
 }
 
-export type TermType = [
-  {
+export type TermType = {
     word: string;
     phonetic: string;
     phonetics: PhoneticType[];
@@ -27,4 +26,10 @@ export type TermType = [
     license: LicenseType[];
     sourceUrls: string[];
   }
-];
+
+
+export type Error = {
+  message: string;
+  title: string;
+  resolution: string;
+}
